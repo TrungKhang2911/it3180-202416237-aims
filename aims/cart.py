@@ -3,7 +3,13 @@ MAX_NUMBERS_ORDERED = 20
 
 class Cart:
     """Giỏ hàng chứa tối đa MAX_NUMBERS_ORDERED đĩa DVD."""
+    def sort_by_title(self):
+        self.items.sort(key=lambda item: item.title)
+        print("Đã sắp xếp giỏ hàng theo tiêu đề")
 
+    def sort_by_cost(self):
+        self.items.sort(key=lambda item: item.cost, reverse=True)
+        print("Đã sắp xếp giỏ hàng theo giá tiền")
     def __init__(self):
         self.items = []
 
@@ -12,7 +18,7 @@ class Cart:
             print("The cart is almost full")
             return False
         self.items.append(dvd)
-        print(f"The disc '{dvd.title}' has been added")
+        print(f"Đã thêm đĩa '{dvd.title}' vào giỏ hàng")
         return True
 
     def remove_dvd(self, dvd):
