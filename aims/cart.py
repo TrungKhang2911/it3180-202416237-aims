@@ -1,6 +1,3 @@
-from aims import dvd
-
-
 MAX_NUMBERS_ORDERED = 20
 
 
@@ -15,7 +12,7 @@ class Cart:
             print("The cart is almost full")
             return False
         self.items.append(dvd)
-        print(f"Đã thêm đĩa '{dvd.title}' vào giỏ hàng")
+        print(f"The disc '{dvd.title}' has been added")
         return True
 
     def remove_dvd(self, dvd):
