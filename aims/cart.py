@@ -25,3 +25,10 @@ class Cart:
 
     def total_cost(self):
         return sum(item.cost for item in self.items)
+    def total_cost_with_discount(self, percent):
+        if percent < 0 or percent > 100:
+            raise ValueError("Phần trăm giảm giá phải từ 0 đến 100")
+        
+        total = self.total_cost()
+        # Công thức đúng: Tổng tiền * (100 - phần trăm) / 100
+        return total * (100 - percent) / 100
