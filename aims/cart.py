@@ -31,19 +31,10 @@ class Cart:
 
     def total_cost(self):
         return sum(item.cost for item in self.items)
-
-    def print_cart(self):
-        if not self.items:
-            print("The cart is empty")
-            return
-        # (Giữ nguyên các dòng print ở dưới)
-        """In chi tiết các đĩa có trong giỏ hàng theo định dạng bài thực hành."""
-        print("***********************CART***********************")
-        print("Ordered Items:")
-        for idx, item in enumerate(self.items, 1):
-            print(
-                f"{idx}. DVD - {item.title} - {item.category} - {item.director} - {item.length}: {item.cost} $"
-            )
-        print(f"Total cost: {self.total_cost():.2f} $")
-        print("***************************************************")
+    def total_cost_with_discount(self, percent):
+        if percent < 0 or percent > 100:
+            raise ValueError("Phần trăm giảm giá phải từ 0 đến 100")
         
+        total = self.total_cost()
+        # Công thức đúng: Tổng tiền * (100 - phần trăm) / 100
+        return total * (100 - percent) / 100
